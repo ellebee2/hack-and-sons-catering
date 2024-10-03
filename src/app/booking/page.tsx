@@ -27,34 +27,17 @@ function BookingContent() {
   }, [searchParams]);
 
   return (
-    <main className="min-h-screen">
-      <Header />
-      
-      <section className="py-24 px-4 md:px-6 lg:py-32 bg-muted">
-        <div className="container mx-auto text-center">
-          <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl mb-6">
-            Schedule a Consultation
-          </h1>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Take the first step towards your perfect culinary experience with Hack & Sons
-          </p>
-        </div>
-      </section>
-
-      <section className="py-16 px-4 md:px-6">
-        <div className="container mx-auto">
-          {calendlyUrl && <CalendlyWidget url={calendlyUrl} />}
-        </div>
-      </section>
-
-      <Footer />
-    </main>
+    <section className="py-16 px-4 md:px-6">
+      <div className="container mx-auto">
+        {calendlyUrl && <CalendlyWidget url={calendlyUrl} />}
+      </div>
+    </section>
   );
 }
 
 export default function BookingPage() {
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen flex flex-col">
       <Header />
       
       <section className="py-24 px-4 md:px-6 lg:py-32 bg-muted">
@@ -68,15 +51,15 @@ export default function BookingPage() {
         </div>
       </section>
 
-      <section className="py-16 px-4 md:px-6">
-        <div className="container mx-auto">
-          <Suspense fallback={<div>Loading...</div>}>
-            <BookingContent />
-          </Suspense>
-        </div>
-      </section>
+      <Suspense fallback={<div>Loading...</div>}>
+        <BookingContent />
+      </Suspense>
 
-      <Footer />
+      <div className="flex-grow"></div>
+
+      <div className="w-full flex justify-center">
+        <Footer />
+      </div>
     </main>
   );
 }

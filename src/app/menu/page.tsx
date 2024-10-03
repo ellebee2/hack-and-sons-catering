@@ -1,94 +1,149 @@
 'use client'
 
-import { useState } from 'react'
+import React, { useState } from 'react'
 import { Header } from "@/components/Header"
 import { Footer } from "@/components/Footer"
-import { motion } from 'framer-motion'
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import Link from 'next/link'
 
-const menuCategories = [
-  "Hors d'oeuvres",
-  "Entrees",
-  "Desserts"
-]
-
-const menuItems = {
-  "Hors d'oeuvres": [
-    { name: "Seared Scallop", description: "with cauliflower purée and crispy prosciutto" },
-    { name: "Beef Tartare", description: "on a parmesan crisp with truffle aioli" },
-    { name: "Wild Mushroom Arancini", description: "with garlic aioli" },
-    { name: "Smoked Salmon Blini", description: "with dill crème fraîche and caviar" }
-  ],
-  "Entrees": [
-    { name: "Pan-Seared Duck Breast", description: "with cherry gastrique, roasted root vegetables" },
-    { name: "Herb-Crusted Rack of Lamb", description: "with mint pesto, roasted fingerling potatoes" },
-    { name: "Miso-Glazed Black Cod", description: "with bok choy and shiitake mushrooms" },
-    { name: "Truffle Risotto", description: "with wild mushrooms and aged parmesan" }
-  ],
-  "Desserts": [
-    { name: "Vanilla Bean Crème Brûlée", description: "with fresh berries" },
-    { name: "Dark Chocolate Mousse", description: "with salted caramel and hazelnut praline" },
-    { name: "Lemon Tart", description: "with Italian meringue and raspberry coulis" },
-    { name: "Cheese Selection", description: "artisanal cheeses with house-made preserves and crackers" }
-  ]
+type MenuItem = {
+  name: string
+  description: string
+  price?: string
 }
 
+type MenuSection = {
+  title: string
+  items: MenuItem[]
+}
+
+const MenuCategory: React.FC<{ category: MenuSection }> = ({ category }) => (
+  <Card className="mb-8">
+    <CardHeader>
+      <CardTitle>{category.title}</CardTitle>
+    </CardHeader>
+    <CardContent>
+      {category.items.map((item, index) => (
+        <div key={index} className="mb-4">
+          <div className="flex justify-between items-baseline">
+            <h4 className="text-lg font-semibold">{item.name}</h4>
+            {item.price && <span className="text-sm text-muted-foreground">{item.price}</span>}
+          </div>
+          <p className="text-sm text-muted-foreground">{item.description}</p>
+        </div>
+      ))}
+    </CardContent>
+  </Card>
+)
+
 export default function MenuPage() {
-  const [activeCategory, setActiveCategory] = useState(menuCategories[0])
+  const [activeTab, setActiveTab] = useState("hors-doeuvres")
+
+  const menuSections = {
+    "hors-doeuvres": [
+      {
+        title: "Cold Hors d'Oeuvres",
+        items: [
+          { name: "Smoked Salmon Blini", description: "House-cured salmon, dill crème fraîche, caviar", price: "$24/dozen" },
+          { name: "Caprese Skewers", description: "Cherry tomatoes, fresh mozzarella, basil, balsamic glaze", price: "$18/dozen" },
+          { name: "Prosciutto-Wrapped Melon", description: "Cantaloupe, aged prosciutto, mint", price: "$22/dozen" },
+        ]
+      },
+      {
+        title: "Hot Hors d'Oeuvres",
+        items: [
+          { name: "Mini Crab Cakes", description: "Lump crab meat, remoulade sauce", price: "$28/dozen" },
+          { name: "Bacon-Wrapped Dates", description: "Medjool dates, goat cheese, applewood-smoked bacon", price: "$20/dozen" },
+          { name: "Mushroom Arancini", description: "Truffle-scented risotto balls, parmesan aioli", price: "$22/dozen" },
+        ]
+      }
+    ],
+    "entrees": [
+      {
+        title: "Seafood",
+        items: [
+          { name: "Pan-Seared Scallops", description: "Cauliflower purée, pancetta, Brussels sprout leaves", price: "$36" },
+          { name: "Grilled Salmon", description: "Quinoa tabbouleh, preserved lemon, harissa yogurt", price: "$32" },
+        ]
+      },
+      {
+        title: "Meat",
+        items: [
+          { name: "Filet Mignon", description: "Truffle mashed potatoes, asparagus, red wine reduction", price: "$42" },
+          { name: "Roasted Chicken", description: "Wild mushroom risotto, broccolini, jus", price: "$28" },
+        ]
+      },
+      {
+        title: "Vegetarian",
+        items: [
+          { name: "Eggplant Parmesan", description: "House-made marinara, fresh mozzarella, basil pesto", price: "$24" },
+          { name: "Butternut Squash Ravioli", description: "Sage brown butter sauce, toasted pine nuts, parmesan", price: "$26" },
+        ]
+      }
+    ],
+    "desserts": [
+      {
+        title: "Desserts",
+        items: [
+          { name: "Chocolate Lava Cake", description: "Vanilla bean ice cream, raspberry coulis", price: "$12" },
+          { name: "Lemon Tart", description: "Torched meringue, blueberry compote", price: "$10" },
+          { name: "Tiramisu", description: "Espresso-soaked ladyfingers, mascarpone cream, cocoa dust", price: "$11" },
+        ]
+      }
+    ]
+  }
 
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen flex flex-col">
       <Header />
       
       <section className="py-24 px-4 md:px-6 lg:py-32 bg-muted">
         <div className="container mx-auto text-center">
           <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl mb-6">
-            Our Menu
+            Our Culinary Offerings
           </h1>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Explore our culinary creations
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
+            Explore our exquisite menu, crafted with passion and the finest ingredients
           </p>
+          <Link href="/booking" className="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2">
+            Book a Tasting
+          </Link>
         </div>
       </section>
 
       <section className="py-16 px-4 md:px-6">
         <div className="container mx-auto">
-          <div className="flex justify-center mb-8">
-            {menuCategories.map((category) => (
-              <button
-                key={category}
-                onClick={() => setActiveCategory(category)}
-                className={`px-4 py-2 mx-2 rounded-md ${
-                  activeCategory === category ? 'bg-black text-white' : 'bg-gray-200'
-                }`}
-              >
-                {category}
-              </button>
-            ))}
-          </div>
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5 }}
-          >
-            <div className="grid gap-6 md:grid-cols-2">
-              {menuItems[activeCategory as keyof typeof menuItems].map((item: { name: string; description: string }, index: number) => (
-                <motion.div
-                  key={index}
-                  initial={{ y: 20, opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
-                  transition={{ delay: index * 0.1 }}
-                  className="bg-white p-6 rounded-lg shadow-md"
-                >
-                  <h3 className="text-xl font-semibold mb-2">{item.name}</h3>
-                  <p className="text-gray-600">{item.description}</p>
-                </motion.div>
+          <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
+            <TabsList className="grid w-full grid-cols-3">
+              <TabsTrigger value="hors-doeuvres">Hors d'Oeuvres</TabsTrigger>
+              <TabsTrigger value="entrees">Entrées</TabsTrigger>
+              <TabsTrigger value="desserts">Desserts</TabsTrigger>
+            </TabsList>
+            <TabsContent value="hors-doeuvres">
+              {menuSections["hors-doeuvres"].map((category, index) => (
+                <MenuCategory key={index} category={category} />
               ))}
-            </div>
-          </motion.div>
+            </TabsContent>
+            <TabsContent value="entrees">
+              {menuSections["entrees"].map((category, index) => (
+                <MenuCategory key={index} category={category} />
+              ))}
+            </TabsContent>
+            <TabsContent value="desserts">
+              {menuSections["desserts"].map((category, index) => (
+                <MenuCategory key={index} category={category} />
+              ))}
+            </TabsContent>
+          </Tabs>
         </div>
       </section>
 
-      <Footer />
+      <div className="flex-grow"></div>
+
+      <div className="w-full flex justify-center">
+        <Footer />
+      </div>
     </main>
   )
 }

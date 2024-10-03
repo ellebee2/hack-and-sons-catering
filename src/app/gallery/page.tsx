@@ -1,9 +1,10 @@
 'use client'
 
-import Image from 'next/image'
-import Link from 'next/link'
+import React from 'react'
 import { Header } from "@/components/Header"
 import { Footer } from "@/components/Footer"
+import Image from 'next/image'
+import Link from 'next/link'
 
 const images = [
   { src: "/IMG_0708.jpg", alt: "Elegant table setting" },
@@ -16,7 +17,7 @@ const images = [
 
 export default function GalleryPage() {
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen flex flex-col">
       <Header />
       
       <section className="py-12 sm:py-16 md:py-24 px-4 md:px-6 lg:py-32 bg-muted">
@@ -60,7 +61,11 @@ export default function GalleryPage() {
         </div>
       </section>
 
-      <Footer />
+      <div className="flex-grow"></div>
+
+      <div className="w-full flex justify-center">
+        <Footer />
+      </div>
     </main>
   )
 }
