@@ -37,21 +37,21 @@ function BookingContent() {
 
 export default function BookingPage() {
   return (
-    <main className="min-h-screen flex flex-col">
+    <main className="min-h-screen flex flex-col bg-background dark:bg-gray-900">
       <Header />
       
-      <section className="py-24 px-4 md:px-6 lg:py-32 bg-muted">
+      <section className="py-24 px-4 md:px-6 lg:py-32 bg-muted dark:bg-gray-800">
         <div className="container mx-auto text-center">
-          <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl mb-6">
+          <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl mb-6 text-foreground dark:text-white">
             Schedule a Consultation
           </h1>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-xl text-muted-foreground dark:text-gray-300 max-w-3xl mx-auto">
             Take the first step towards your perfect culinary experience with Hack & Sons
           </p>
         </div>
       </section>
 
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={<div className="text-center py-8 text-foreground dark:text-gray-200">Loading...</div>}>
         <BookingContent />
       </Suspense>
 

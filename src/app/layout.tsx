@@ -1,36 +1,26 @@
-import type { Metadata } from "next";
-import localFont from "next/font/local";
-import "./globals.css";
-import { SEO } from "@/components/SEO";
+import { ThemeProvider } from '@/contexts/ThemeContext';
+import './globals.css';
+import type { Metadata } from 'next';
+import { Inter } from 'next/font/google';
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
+const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: "Hack & Sons Catering",
-  description: "Elevate your culinary experience with Hack & Sons Catering",
+  title: 'Hack & Sons Catering',
+  description: 'Exquisite catering for all occasions',
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: {
+  children: React.ReactNode
+}) {
   return (
     <html lang="en">
-      <head>
-        <SEO />
-      </head>
-      <body className={`${geistSans.variable} ${geistMono.variable} font-sans`}>
-        {children}
+      <body className={inter.className}>
+        <ThemeProvider>
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );

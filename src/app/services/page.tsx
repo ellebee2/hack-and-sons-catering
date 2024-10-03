@@ -9,20 +9,20 @@ import { CheckCircle2 } from 'lucide-react'
 import Link from 'next/link'
 
 const ServiceCard: React.FC<{ title: string; description: string; items: string[] }> = ({ title, description, items }) => (
-  <Card className="h-full">
+  <Card className="h-full bg-background dark:bg-gray-800">
     <CardHeader>
-      <CardTitle>{title}</CardTitle>
-      <CardDescription>{description}</CardDescription>
+      <CardTitle className="text-foreground dark:text-gray-100">{title}</CardTitle>
+      <CardDescription className="text-muted-foreground dark:text-gray-300">{description}</CardDescription>
     </CardHeader>
     <CardContent>
       <Accordion type="single" collapsible className="w-full">
         <AccordionItem value="items">
-          <AccordionTrigger>View Details</AccordionTrigger>
+          <AccordionTrigger className="text-foreground dark:text-gray-100">View Details</AccordionTrigger>
           <AccordionContent>
             <ul className="mt-2">
               {items.map((item, index) => (
-                <li key={index} className="flex items-center mb-2">
-                  <CheckCircle2 className="mr-2 h-5 w-5 text-green-500" />
+                <li key={index} className="flex items-center mb-2 text-foreground dark:text-gray-200">
+                  <CheckCircle2 className="mr-2 h-5 w-5 text-green-500 dark:text-green-400" />
                   {item}
                 </li>
               ))}
@@ -129,18 +129,18 @@ export default function ServicesPage() {
   ];
 
   return (
-    <main className="min-h-screen flex flex-col">
+    <main className="min-h-screen flex flex-col bg-background dark:bg-gray-900">
       <Header />
       
-      <section className="py-24 px-4 md:px-6 lg:py-32 bg-muted">
+      <section className="py-24 px-4 md:px-6 lg:py-32 bg-muted dark:bg-gray-800">
         <div className="container mx-auto text-center">
-          <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl mb-6">
+          <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl mb-6 text-foreground dark:text-white">
             Our Bespoke Services
           </h1>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
+          <p className="text-xl text-muted-foreground dark:text-gray-300 max-w-3xl mx-auto mb-8">
             Elevate your culinary experience with our tailored catering solutions
           </p>
-          <Link href="/booking" className="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2">
+          <Link href="/booking" className="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 dark:bg-primary dark:text-primary-foreground dark:hover:bg-primary/80 h-10 px-4 py-2">
             Book a Consultation
           </Link>
         </div>
