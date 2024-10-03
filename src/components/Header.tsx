@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import { Menu } from "lucide-react"
+import styles from './Header.module.css'
 
 export function Header() {
   const [isOpen, setIsOpen] = useState(false)
@@ -16,12 +17,12 @@ export function Header() {
   ]
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <header className={styles.header}>
       <div className="container flex h-16 items-center">
         <div className="flex items-center flex-1">
-          <Link href="/" className="flex items-center space-x-2">
-            <span className="text-xl font-bold">Hack & Sons</span>
-            <span className="hidden sm:inline-block text-xs tracking-wide uppercase text-muted-foreground">Personal Chef | Private Catering</span>
+          <Link href="/" className={styles.logo}>
+            <span className={styles.logoMain}>HACK <span className={styles.ampersand}>&</span> SONS</span>
+            <span className={styles.logoTagline}>Personal Chef | Private Catering</span>
           </Link>
         </div>
         <nav className="hidden md:flex items-center gap-6">

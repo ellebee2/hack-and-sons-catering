@@ -9,9 +9,10 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Header } from "@/components/Header"
 import { Footer } from "@/components/Footer"
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel"
+import { SEO } from "@/components/SEO"
 
 const MotionSection = dynamic(() => import('framer-motion').then((mod) => mod.motion.section), { ssr: false });
 const MotionH1 = dynamic(() => import('framer-motion').then((mod) => mod.motion.h1), { ssr: false });
@@ -43,6 +44,10 @@ export default function LandingPage() {
 
   return (
     <main className="flex flex-col min-h-screen">
+      <SEO 
+        title="Hack & Sons Private Catering - Home"
+        description="Exclusive private dining and catering services in Nashville. Elevate your culinary experience with Hack & Sons."
+      />
       <Header />
 
       {/* Hero Section */}
@@ -85,86 +90,81 @@ export default function LandingPage() {
       <section id="services" className="py-12 sm:py-16 px-4 md:px-6 bg-muted">
         <div className="container mx-auto">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tighter mb-8 text-center">Services</h2>
-          <Tabs defaultValue="private" className="w-full">
-            <TabsList className="grid w-full grid-cols-1 sm:grid-cols-3">
-              <TabsTrigger value="private">Private Dining</TabsTrigger>
-              <TabsTrigger value="corporate">Corporate Events</TabsTrigger>
-              <TabsTrigger value="weddings">Weddings</TabsTrigger>
-            </TabsList>
-            <TabsContent value="private">
-              <Card>
-                <CardHeader>
-                  <CardTitle>Exclusive Private Dining</CardTitle>
-                  <CardDescription>Intimate culinary experiences in the comfort of your home</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <Image 
-                    src="/IMG_0708.jpg"
-                    alt="Elegant private dining setup" 
-                    width={600} 
-                    height={400} 
-                    priority
-                    className="rounded-lg object-cover w-full h-64"
-                  />
-                  <p className="mt-4">Experience restaurant-quality dining in the intimacy of your home. Our expert chefs create personalized menus featuring exquisite dishes tailored to your preferences and dietary needs.</p>
-                </CardContent>
-                <CardFooter className="flex flex-col space-y-2">
-                  <Link href="/booking" className="w-full">
-                    <Button className="w-full bg-black text-white hover:bg-gray-800">Book a Private Chef</Button>
-                  </Link>
-                  <Link href="/services" className="w-full">
-                    <Button variant="outline" className="w-full">Additional Services</Button>
-                  </Link>
-                </CardFooter>
-              </Card>
-            </TabsContent>
-            <TabsContent value="corporate">
-              <Card>
-                <CardHeader>
-                  <CardTitle>Corporate Event Catering</CardTitle>
-                  <CardDescription>Elevate your business gatherings with our professional service</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <Image 
-                    src="/4F15D43E-B750-41C6-AE9E-BD7810D78EF9.jpeg"
-                    alt="Corporate event catering with elegantly plated salads"
-                    width={600} 
-                    height={400} 
-                    className="rounded-lg object-cover object-bottom w-full h-64"
-                  />
-                  <p className="mt-4">Impress clients and colleagues with our sophisticated corporate catering. From power lunches to grand galas, we offer a range of options including innovative hors d'oeuvres and expertly crafted main courses.</p>
-                </CardContent>
-                <CardFooter>
-                  <Link href="/booking" className="w-full">
-                    <Button className="w-full bg-black text-white hover:bg-gray-800">Request a Quote</Button>
-                  </Link>
-                </CardFooter>
-              </Card>
-            </TabsContent>
-            <TabsContent value="weddings">
-              <Card>
-                <CardHeader>
-                  <CardTitle>Unforgettable Wedding Feasts</CardTitle>
-                  <CardDescription>Culinary magic for your special day</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <Image 
-                    src="/BCB55080-0529-45D0-8A02-78C1BBEB49C2.jpeg"
-                    alt="Elegant wedding table setting with candles and floral centerpieces" 
-                    width={600} 
-                    height={400} 
-                    className="rounded-lg object-cover w-full h-64"
-                  />
-                  <p className="mt-4">Your wedding day deserves a menu as extraordinary as your love story. Our expert chefs craft bespoke menus that reflect your tastes and create lasting memories for you and your guests.</p>
-                </CardContent>
-                <CardFooter>
-                  <Link href="/booking" className="w-full">
-                    <Button className="w-full bg-black text-white hover:bg-gray-800">Plan Your Wedding Menu</Button>
-                  </Link>
-                </CardFooter>
-              </Card>
-            </TabsContent>
-          </Tabs>
+          <Carousel className="w-full max-w-4xl mx-auto" autoplayInterval={5000}>
+            <CarouselContent>
+              {/* Private Dining */}
+              <CarouselItem>
+                <Card>
+                  <CardHeader>
+                    <CardTitle>Exclusive Private Dining</CardTitle>
+                    <CardDescription>Intimate culinary experiences in the comfort of your home</CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <Image 
+                      src="/IMG_0708.jpg"
+                      alt="Elegant private dining setup" 
+                      width={600} 
+                      height={400} 
+                      priority
+                      className="rounded-lg object-cover w-full h-64"
+                    />
+                    <p className="mt-4">Experience restaurant-quality dining in the intimacy of your home. Our expert chefs create personalized menus featuring exquisite dishes tailored to your preferences and dietary needs.</p>
+                  </CardContent>
+                </Card>
+              </CarouselItem>
+
+              {/* Corporate Events */}
+              <CarouselItem>
+                <Card>
+                  <CardHeader>
+                    <CardTitle>Corporate Event Catering</CardTitle>
+                    <CardDescription>Elevate your business gatherings with our professional service</CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <Image 
+                      src="/4F15D43E-B750-41C6-AE9E-BD7810D78EF9.jpeg"
+                      alt="Corporate event catering with elegantly plated salads"
+                      width={600} 
+                      height={400} 
+                      className="rounded-lg object-cover object-bottom w-full h-64"
+                    />
+                    <p className="mt-4">Impress clients and colleagues with our sophisticated corporate catering. From power lunches to grand galas, we offer a range of options including innovative hors d'oeuvres and expertly crafted main courses.</p>
+                  </CardContent>
+                </Card>
+              </CarouselItem>
+
+              {/* Weddings */}
+              <CarouselItem>
+                <Card>
+                  <CardHeader>
+                    <CardTitle>Unforgettable Wedding Feasts</CardTitle>
+                    <CardDescription>Culinary magic for your special day</CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <Image 
+                      src="/BCB55080-0529-45D0-8A02-78C1BBEB49C2.jpeg"
+                      alt="Elegant wedding table setting with candles and floral centerpieces" 
+                      width={600} 
+                      height={400} 
+                      className="rounded-lg object-cover w-full h-64"
+                    />
+                    <p className="mt-4">Your wedding day deserves a menu as extraordinary as your love story. Our expert chefs craft bespoke menus that reflect your tastes and create lasting memories for you and your guests.</p>
+                  </CardContent>
+                </Card>
+              </CarouselItem>
+            </CarouselContent>
+            <CarouselPrevious />
+            <CarouselNext />
+          </Carousel>
+
+          <div className="mt-8 flex flex-col sm:flex-row justify-center gap-4">
+            <Link href="/services" className="w-full sm:w-auto">
+              <Button variant="outline" className="w-full">Additional Services</Button>
+            </Link>
+            <Link href="/booking" className="w-full sm:w-auto">
+              <Button className="w-full bg-black text-white hover:bg-gray-800">Book Now</Button>
+            </Link>
+          </div>
         </div>
       </section>
 
@@ -226,7 +226,7 @@ export default function LandingPage() {
                 <CardDescription>Emily & James, Wedding Clients</CardDescription>
               </CardHeader>
               <CardContent>
-                <p>"Hack & Sons transformed our wedding into a culinary adventure. Our guests are still raving about the food months later!"</p>
+                <p>&quot;Hack & Sons transformed our wedding into a culinary adventure. Our guests are still raving about the food months later!&quot;</p>
               </CardContent>
             </Card>
             <Card>
@@ -265,24 +265,55 @@ export default function LandingPage() {
                 <div className="grid w-full items-center gap-4">
                   <div className="flex flex-col space-y-1.5">
                     <Label htmlFor="name">Name</Label>
-                    <Input id="name" placeholder="Your name" value={formData.name} onChange={handleInputChange} />
+                    <Input 
+                      id="name" 
+                      placeholder="Your name" 
+                      value={formData.name} 
+                      onChange={handleInputChange}
+                      aria-required="true"
+                    />
                   </div>
                   <div className="flex flex-col space-y-1.5">
                     <Label htmlFor="email">Email</Label>
-                    <Input id="email" placeholder="Your email" type="email" value={formData.email} onChange={handleInputChange} />
+                    <Input 
+                      id="email" 
+                      placeholder="Your email" 
+                      type="email" 
+                      value={formData.email} 
+                      onChange={handleInputChange}
+                      aria-required="true"
+                    />
                   </div>
                   <div className="flex flex-col space-y-1.5">
                     <Label htmlFor="event">Event Type</Label>
-                    <Input id="event" placeholder="e.g., Wedding, Corporate Dinner, Birthday" value={formData.event} onChange={handleInputChange} />
+                    <Input 
+                      id="event" 
+                      placeholder="e.g., Wedding, Corporate Dinner, Birthday" 
+                      value={formData.event} 
+                      onChange={handleInputChange}
+                      aria-required="true"
+                    />
                   </div>
                   <div className="flex flex-col space-y-1.5">
                     <Label htmlFor="message">Your Vision</Label>
-                    <Input id="message" placeholder="Tell us about your dream event" value={formData.message} onChange={handleInputChange} />
+                    <Input 
+                      id="message" 
+                      placeholder="Tell us about your dream event" 
+                      value={formData.message} 
+                      onChange={handleInputChange}
+                      aria-required="true"
+                    />
                   </div>
                 </div>
               </CardContent>
               <CardFooter>
-                <Button type="submit" className="w-full bg-black text-white hover:bg-gray-800">Book Your Consultation</Button>
+                <Button 
+                  type="submit" 
+                  className="w-full bg-black text-white hover:bg-gray-800"
+                  aria-label="Book Your Consultation"
+                >
+                  Book Your Consultation
+                </Button>
               </CardFooter>
             </form>
           </Card>
