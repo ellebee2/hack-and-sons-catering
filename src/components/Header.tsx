@@ -4,7 +4,6 @@ import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import { Menu } from "lucide-react"
 import styles from './Header.module.css'
-import { ThemeToggle } from './ThemeToggle'
 
 export function Header() {
   const [isOpen, setIsOpen] = useState(false)
@@ -22,8 +21,8 @@ export function Header() {
       <div className="container flex h-16 items-center">
         <div className="flex items-center flex-1">
           <Link href="/" className={styles.logo}>
-            <span className={`${styles.logoMain} dark:text-white`}>HACK <span className={styles.ampersand}>&</span> SONS</span>
-            <span className={`${styles.logoTagline} dark:text-gray-300`}>Personal Chef | Private Catering</span>
+            <span className={styles.logoMain}>HACK <span className={styles.ampersand}>&</span> SONS</span>
+            <span className={styles.logoTagline}>Personal Chef | Private Catering</span>
           </Link>
         </div>
         <nav className="hidden md:flex items-center gap-6">
@@ -33,7 +32,7 @@ export function Header() {
             </Link>
           ))}
           <Link href="/booking">
-            <Button className="bg-black text-white hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-200">Book Now</Button>
+            <Button className="bg-black text-white hover:bg-gray-800">Book Now</Button>
           </Link>
         </nav>
         <Sheet open={isOpen} onOpenChange={setIsOpen}>
@@ -55,10 +54,9 @@ export function Header() {
                   {item.label}
                 </Link>
               ))}
-              <ThemeToggle />
               <div className="mt-4">
                 <Link href="/booking" onClick={() => setIsOpen(false)}>
-                  <Button className="w-full bg-black text-white hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-200">Book Now</Button>
+                  <Button className="w-full bg-black text-white hover:bg-gray-800">Book Now</Button>
                 </Link>
               </div>
             </nav>
