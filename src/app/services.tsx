@@ -28,7 +28,7 @@ export default function ServicesPage() {
             Our Bespoke Services
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            From intimate gatherings to grand celebrations, Hack & Sons brings culinary excellence to every event.
+            From intimate gatherings to grand celebrations, we&apos;ll ensure your event is a culinary success.
           </p>
         </div>
       </section>
@@ -88,7 +88,7 @@ export default function ServicesPage() {
                   />
                 </div>
                 <div>
-                  <p className="mb-4">Impress clients and colleagues with our sophisticated corporate catering. From power lunches to grand galas, we offer a range of options including innovative hors d'oeuvres and expertly crafted main courses.</p>
+                  <p className="mb-4">Impress clients and colleagues with our sophisticated corporate catering. From power lunches to grand galas, we offer a range of options including innovative hors d&apos;oeuvres and expertly crafted main courses.</p>
                   <ul className="list-disc list-inside mb-4">
                     <li>Business lunch and dinner catering</li>
                     <li>Conference and seminar refreshments</li>
@@ -125,7 +125,7 @@ export default function ServicesPage() {
                   <p className="mb-4">Your wedding day deserves a menu as extraordinary as your love story. Our expert chefs craft bespoke menus that reflect your tastes and create lasting memories for you and your guests.</p>
                   <ul className="list-disc list-inside mb-4">
                     <li>Customized wedding menu design</li>
-                    <li>Cocktail hour hors d'oeuvres</li>
+                    <li>Cocktail hour hors d&apos;oeuvres</li>
                     <li>Plated or buffet-style dinner service</li>
                     <li>Wedding cake and dessert options</li>
                     <li>Late-night snack offerings</li>
@@ -180,7 +180,7 @@ export default function ServicesPage() {
                     </button>
                     {expandedService === service && (
                       <p className="mt-2 pl-8 text-sm text-gray-600">
-                        Detailed description of {service.toLowerCase()} goes here. Explain the benefits and what's included.
+                        Detailed description of {service.toLowerCase()} goes here. Explain the benefits and what&apos;s included.
                       </p>
                     )}
                   </li>
@@ -196,7 +196,7 @@ export default function ServicesPage() {
         <div className="container mx-auto text-center">
           <h2 className="text-3xl font-bold mb-4">Ready to Elevate Your Event?</h2>
           <p className="mb-8 text-lg">Contact us to start planning your unforgettable culinary experience.</p>
-          <Link href="/contact" className="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-white text-primary hover:bg-gray-100 h-10 px-4 py-2">
+          <Link href="/contact" className="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-white text-primary hover:bg-gray-100 h-10 px-4 py-2">
             Get in Touch
           </Link>
         </div>

@@ -128,7 +128,7 @@ export default function LandingPage() {
                       height={400} 
                       className="rounded-lg object-cover object-bottom w-full h-64"
                     />
-                    <p className="mt-4">Impress clients and colleagues with our sophisticated corporate catering. From power lunches to grand galas, we offer a range of options including innovative hors d'oeuvres and expertly crafted main courses.</p>
+                    <p className="mt-4">Impress clients and colleagues with our sophisticated corporate catering. From power lunches to grand galas, we offer a range of options including innovative hors d&apos;oeuvres and expertly crafted main courses.</p>
                   </CardContent>
                 </Card>
               </CarouselItem>
@@ -216,14 +216,14 @@ export default function LandingPage() {
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-16 px-4 md:px-6 bg-muted">
-        <div className="container">
-          <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-8 text-center">Client Experiences</h2>
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+      <section id="testimonials" className="py-12 sm:py-16 px-4 md:px-6 bg-muted">
+        <div className="container mx-auto">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tighter mb-8 text-center">What Our Clients Say</h2>
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             <Card>
               <CardHeader>
-                <CardTitle>Exceptional Service</CardTitle>
-                <CardDescription>Emily & James, Wedding Clients</CardDescription>
+                <CardTitle>Wedding Bliss</CardTitle>
+                <CardDescription>Emily & John, Newlyweds</CardDescription>
               </CardHeader>
               <CardContent>
                 <p>&quot;Hack & Sons transformed our wedding into a culinary adventure. Our guests are still raving about the food months later!&quot;</p>
@@ -235,7 +235,7 @@ export default function LandingPage() {
                 <CardDescription>Sarah T., Marketing Director</CardDescription>
               </CardHeader>
               <CardContent>
-                <p>"Their attention to detail and innovative menu options impressed our international clients. Hack & Sons is now our go-to for all corporate events."</p>
+                <p>&quot;Their attention to detail and innovative menu options impressed our international clients. Hack & Sons is now our go-to for all corporate events.&quot;</p>
               </CardContent>
             </Card>
             <Card>
@@ -244,7 +244,7 @@ export default function LandingPage() {
                 <CardDescription>Michael R., Private Client</CardDescription>
               </CardHeader>
               <CardContent>
-                <p>"The private chef experience for my 50th was unforgettable. Hack & Sons created a bespoke menu that perfectly captured my tastes."</p>
+                <p>&quot;The private chef experience for my 50th was unforgettable. Hack & Sons created a bespoke menu that perfectly captured my tastes.&quot;</p>
               </CardContent>
             </Card>
           </div>

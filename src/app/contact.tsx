@@ -16,7 +16,7 @@ export default function ContactPage() {
             Get in Touch
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Let's create an unforgettable culinary experience together.
+            Let&apos;s create an unforgettable culinary experience together.
           </p>
         </div>
       </section>
@@ -26,7 +26,7 @@ export default function ContactPage() {
           <Card>
             <CardHeader>
               <CardTitle>Contact Us</CardTitle>
-              <CardDescription>Fill out the form below and we'll get back to you soon.</CardDescription>
+              <CardDescription>Fill out the form below and we&apos;ll get back to you soon.</CardDescription>
             </CardHeader>
             <CardContent>
               <form>

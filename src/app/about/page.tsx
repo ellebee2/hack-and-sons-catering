@@ -30,7 +30,7 @@ export default function AboutPage() {
                 Hack & Sons Catering was born out of a passion for food and a dedication to service. Founded by Cameron Hack in 2016, our family-owned business has quickly become a prominent name in the Nashville culinary scene.
               </p>
               <p className="mb-4">
-                What started as a vision to bring restaurant-quality dining experiences into people's homes has grown into a premier catering service, known for our innovative menus, impeccable presentation, and unwavering commitment to quality.
+                What started as a vision to bring restaurant-quality dining experiences into people&apos;s homes has grown into a premier catering service, known for our innovative menus, impeccable presentation, and unwavering commitment to quality.
               </p>
               <p>
                 Today, with Cameron at the helm and supported by a talented team including Laura and Roman Hack, we continue to push the boundaries of culinary excellence while staying true to our roots of warm, personalized service that Nashville has come to love.
@@ -100,7 +100,7 @@ export default function AboutPage() {
                 <CardDescription>Operations Director</CardDescription>
               </CardHeader>
               <CardContent>
-                <p>Laura's keen eye for detail and extensive background in event management ensures that every aspect of your event runs smoothly, from the initial planning stages to the final moments.</p>
+                <p>Laura&apos;s keen eye for detail and extensive background in event management ensures that every aspect of your event runs smoothly, from the initial planning stages to the final moments.</p>
               </CardContent>
             </Card>
             <Card>
@@ -109,7 +109,7 @@ export default function AboutPage() {
                 <CardDescription>Head of Culinary Innovation</CardDescription>
               </CardHeader>
               <CardContent>
-                <p>Roman's passion for exploring new flavors and techniques keeps Hack & Sons at the forefront of culinary trends, constantly pushing the boundaries of what's possible in catering and private dining.</p>
+                <p>Roman&apos;s passion for exploring new flavors and techniques keeps Hack & Sons at the forefront of culinary trends, constantly pushing the boundaries of what&apos;s possible in catering and private dining.</p>
               </CardContent>
             </Card>
           </div>
@@ -120,24 +120,12 @@ export default function AboutPage() {
         <div className="container mx-auto text-center">
           <h2 className="text-3xl font-bold mb-4">Our Commitment</h2>
           <p className="max-w-3xl mx-auto text-lg">
-            At Hack & Sons, we're not just serving food; we're creating memories. Whether it's an intimate dinner for two or a grand gala for thousands, we approach every event with the same dedication to excellence and attention to detail.
+            At Hack & Sons, we&apos;re not just serving food; we&apos;re creating memories. Whether it&apos;s an intimate dinner for two or a grand gala for thousands, we approach every event with the same dedication to excellence and attention to detail.
           </p>
         </div>
       </section>
 
-      <footer className="border-t py-6">
-        <div className="container mx-auto text-center">
-          <div className="flex flex-col items-center gap-2">
-            <div className="flex flex-col items-center">
-              <h2 className="text-xl font-bold">Hack & Sons</h2>
-              <p className="text-xs">Personal Chef | Private Catering</p>
-            </div>
-            <p className="text-sm leading-loose">
-              © 2024 Hack & Sons Private Catering. Crafting culinary memories.
-            </p>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </main>
   )
 }
