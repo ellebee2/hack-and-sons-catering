@@ -4,7 +4,7 @@ import React, { useState } from 'react'
 import { Header } from "@/components/Header"
 import { Footer } from "@/components/Footer"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import Link from 'next/link'
 
 type MenuItem = {
@@ -116,7 +116,7 @@ export default function MenuPage() {
         <div className="container mx-auto">
           <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
             <TabsList className="grid w-full grid-cols-3">
-              <TabsTrigger value="hors-doeuvres">Hors d'Oeuvres</TabsTrigger>
+              <TabsTrigger value="hors-doeuvres">Hors d&apos;Oeuvres</TabsTrigger>
               <TabsTrigger value="entrees">Entrées</TabsTrigger>
               <TabsTrigger value="desserts">Desserts</TabsTrigger>
             </TabsList>
