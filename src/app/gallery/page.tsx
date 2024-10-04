@@ -10,10 +10,10 @@ import Link from 'next/link'
 const images: { src: string; alt: string }[] = [
   { src: "/IMG_0363.jpg", alt: "Elegant catering setup" },
   { src: "/IMG_0707.jpg", alt: "Gourmet dish presentation" },
-  { src: "/IMG_0708.jpg", alt: "Beautifully plated meal" }, // Changed from img_0708.jpg
+  { src: "/IMG_0708.jpg", alt: "Beautifully plated meal" },
   { src: "/IMG_0710.jpg", alt: "Exquisite dessert display" },
-  { src: "/IMG_6055.jpg", alt: "Colorful appetizer spread" }, // Changed from img_5554.jpg
-  { src: "/IMG_1189.jpg", alt: "Sophisticated table setting" }, // Changed from img_1189.jpg
+  { src: "/IMG_6055.jpg", alt: "Colorful appetizer spread" },
+  { src: "/IMG_1189.jpg", alt: "Sophisticated table setting" },
 ];
 
 export default function GalleryPage() {
@@ -36,13 +36,14 @@ export default function GalleryPage() {
         <div className="container mx-auto">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
             {images.map((image, index) => (
-              <div key={index} className="relative aspect-square overflow-hidden rounded-lg shadow-lg">
+              <div key={index} className="relative w-full pb-[100%] overflow-hidden rounded-lg shadow-lg">
                 <Image
                   src={image.src}
                   alt={image.alt}
-                  fill
+                  layout="fill"
+                  objectFit="cover"
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                  className="object-cover transition-transform duration-300 hover:scale-110"
+                  className="absolute inset-0 w-full h-full transition-transform duration-300 hover:scale-110"
                 />
               </div>
             ))}
