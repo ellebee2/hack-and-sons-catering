@@ -12,7 +12,7 @@ const images: { src: string; alt: string }[] = [
   { src: "/IMG_0707.jpg", alt: "Gourmet dish presentation" },
   { src: "/IMG_0708.jpg", alt: "Beautifully plated meal" }, // Changed from img_0708.jpg
   { src: "/IMG_0710.jpg", alt: "Exquisite dessert display" },
-  { src: "/IMG_5554.jpg", alt: "Colorful appetizer spread" }, // Changed from img_5554.jpg
+  { src: "/IMG_6055.jpg", alt: "Colorful appetizer spread" }, // Changed from img_5554.jpg
   { src: "/IMG_1189.jpg", alt: "Sophisticated table setting" }, // Changed from img_1189.jpg
 ];
 
