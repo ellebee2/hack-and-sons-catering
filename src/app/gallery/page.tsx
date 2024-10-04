@@ -10,10 +10,10 @@ import Link from 'next/link'
 const images: { src: string; alt: string }[] = [
   { src: "/IMG_0363.jpg", alt: "Elegant catering setup" },
   { src: "/IMG_0707.jpg", alt: "Gourmet dish presentation" },
-  { src: "/img_0708.jpg", alt: "Beautifully plated meal" },
+  { src: "/IMG_0708.jpg", alt: "Beautifully plated meal" }, // Changed from img_0708.jpg
   { src: "/IMG_0710.jpg", alt: "Exquisite dessert display" },
-  { src: "/img_5554.jpg", alt: "Colorful appetizer spread" },
-  { src: "/img_1189.jpg", alt: "Sophisticated table setting" },
+  { src: "/IMG_5554.jpg", alt: "Colorful appetizer spread" }, // Changed from img_5554.jpg
+  { src: "/IMG_1189.jpg", alt: "Sophisticated table setting" }, // Changed from img_1189.jpg
 ];
 
 export default function GalleryPage() {
