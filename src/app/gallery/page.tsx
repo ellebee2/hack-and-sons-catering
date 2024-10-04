@@ -6,14 +6,15 @@ import { Footer } from "@/components/Footer"
 import Image from 'next/image'
 import Link from 'next/link'
 
-const images = [
-  { src: "/img_0708.jpg", alt: "Elegant table setting" },
-  { src: "/img_0709.jpg", alt: "Gourmet scallop dish" },
-  { src: "/img_1387.jpg", alt: "Beautifully plated appetizers" },
-  { src: "/img_1189.jpg", alt: "Gourmet dish presentation" },
-  { src: "/img_5554.jpg", alt: "Colorful vegetable dish" },
-  { src: "/img_6055.jpg", alt: "Elegant plated dessert" },
-]
+// Populate the array with the image paths you provided
+const images: { src: string; alt: string }[] = [
+  { src: "/IMG_0363.jpg", alt: "Elegant catering setup" },
+  { src: "/IMG_0707.jpg", alt: "Gourmet dish presentation" },
+  { src: "/img_0708.jpg", alt: "Beautifully plated meal" },
+  { src: "/IMG_0710.jpg", alt: "Exquisite dessert display" },
+  { src: "/img_5554.jpg", alt: "Colorful appetizer spread" },
+  { src: "/img_1189.jpg", alt: "Sophisticated table setting" },
+];
 
 export default function GalleryPage() {
   return (
@@ -40,13 +41,8 @@ export default function GalleryPage() {
                   src={image.src}
                   alt={image.alt}
                   fill
-                  unoptimized
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   className="object-cover transition-transform duration-300 hover:scale-110"
-                  onError={(e) => {
-                    console.error(`Error loading image: ${image.src}`);
-                    e.currentTarget.src = "/fallback-image.jpg"; // Replace with a path to a fallback image
-                  }}
                 />
               </div>
             ))}
