@@ -19,18 +19,18 @@ type MenuSection = {
 }
 
 const MenuCategory: React.FC<{ category: MenuSection }> = ({ category }) => (
-  <Card className="mb-8 bg-background dark:bg-gray-800">
+  <Card className="mb-8 bg-background">
     <CardHeader>
-      <CardTitle className="text-foreground dark:text-gray-100">{category.title}</CardTitle>
+      <CardTitle className="text-foreground">{category.title}</CardTitle>
     </CardHeader>
     <CardContent>
       {category.items.map((item, index) => (
         <div key={index} className="mb-4">
           <div className="flex justify-between items-baseline">
-            <h4 className="text-lg font-semibold text-foreground dark:text-gray-100">{item.name}</h4>
-            {item.price && <span className="text-sm text-muted-foreground dark:text-gray-300">{item.price}</span>}
+            <h4 className="text-lg font-semibold text-foreground">{item.name}</h4>
+            {item.price && <span className="text-sm text-muted-foreground">{item.price}</span>}
           </div>
-          <p className="text-sm text-muted-foreground dark:text-gray-400">{item.description}</p>
+          <p className="text-sm text-muted-foreground">{item.description}</p>
         </div>
       ))}
     </CardContent>
@@ -95,18 +95,18 @@ export default function MenuPage() {
   }
 
   return (
-    <main className="min-h-screen flex flex-col bg-background dark:bg-gray-900">
+    <main className="min-h-screen flex flex-col bg-background">
       <Header />
       
-      <section className="py-24 px-4 md:px-6 lg:py-32 bg-muted dark:bg-gray-800">
+      <section className="py-24 px-4 md:px-6 lg:py-32 bg-muted">
         <div className="container mx-auto text-center">
-          <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl mb-6 text-foreground dark:text-white">
-            Our Culinary Offerings
+          <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl mb-6 text-foreground">
+            Gourmet Creations
           </h1>
-          <p className="text-xl text-muted-foreground dark:text-gray-300 max-w-3xl mx-auto mb-8">
-            Explore our exquisite menu, crafted with passion and the finest ingredients
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
+            Explore our curated selection of culinary masterpieces
           </p>
-          <Link href="/booking" className="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 dark:bg-primary dark:text-primary-foreground dark:hover:bg-primary/80 h-10 px-4 py-2">
+          <Link href="/booking" className="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2">
             Book a Tasting
           </Link>
         </div>
@@ -115,10 +115,10 @@ export default function MenuPage() {
       <section className="py-16 px-4 md:px-6">
         <div className="container mx-auto">
           <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-            <TabsList className="grid w-full grid-cols-3 bg-muted dark:bg-gray-700">
-              <TabsTrigger value="hors-doeuvres" className="data-[state=active]:bg-background dark:data-[state=active]:bg-gray-600">Hors d&apos;Oeuvres</TabsTrigger>
-              <TabsTrigger value="entrees" className="data-[state=active]:bg-background dark:data-[state=active]:bg-gray-600">Entrées</TabsTrigger>
-              <TabsTrigger value="desserts" className="data-[state=active]:bg-background dark:data-[state=active]:bg-gray-600">Desserts</TabsTrigger>
+            <TabsList className="grid w-full grid-cols-3 bg-muted">
+              <TabsTrigger value="hors-doeuvres" className="data-[state=active]:bg-background">Hors d&apos;Oeuvres</TabsTrigger>
+              <TabsTrigger value="entrees" className="data-[state=active]:bg-background">Entrées</TabsTrigger>
+              <TabsTrigger value="desserts" className="data-[state=active]:bg-background">Desserts</TabsTrigger>
             </TabsList>
             <TabsContent value="hors-doeuvres">
               {menuSections["hors-doeuvres"].map((category, index) => (

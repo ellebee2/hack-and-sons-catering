@@ -101,7 +101,7 @@ export default function LandingPage() {
                   </CardHeader>
                   <CardContent>
                     <Image 
-                      src="/IMG_0708.jpg"
+                      src="/FB13149A-9B86-49C4-B1F4-DBAB84C56162.JPG"
                       alt="Elegant private dining setup" 
                       width={600} 
                       height={400} 
